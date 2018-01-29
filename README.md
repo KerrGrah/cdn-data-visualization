@@ -1,7 +1,6 @@
 Fetching and visualising data exercise.
 
-npm install
-npm start
+`npm install` `npm start`
 
 slightly modified backend here:
 

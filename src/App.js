@@ -34,7 +34,7 @@ class App extends Component {
   }
 
   logIn = (e) => {
-    const value = e.target.value
+    const value =  e.target.value
     if (value === "choose user") return;
     if (this.props.user.sessionToken) {
       this.props.dispatch(logOut(this.props.user.sessionToken))
@@ -51,16 +51,17 @@ class App extends Component {
     const sesssionToken = localStorage.getItem('session_token')
     if (sesssionToken)
       this.props.dispatch(logOut(sesssionToken))
-    //  this.props.dispatch(logIn())
+      setTimeout(()=> {  this.props.dispatch(logIn('urtoob', 'ToobRU'))}, 500)
   }
 
   componentWillUnmount() {
     this.props.dispatch(logOut(this.props.user.sessionToken))
   }
   viewRangeChange = (start, stop) => {
-    const audience = this.props.user.clientData.audience.data.audience.length
-    const rangeStart = audience * start > 0 ? (audience * start).toFixed() : 100;
-    const rangeStop = audience * stop > 0 ? (audience * stop ).toFixed() : 200
+   const audience = this.props.user.clientData.audience.data.audience.length
+    const rangeStart = audience * start > 0 ? (audience * start).toFixed() : 0;
+    const rangeStop = audience * stop > 0 ? (audience * stop ).toFixed() : 200;
+  //  console.log(audience, rangeStart, rangeStop);
     this.setState({viewRange: [rangeStart, rangeStop]})
   }
 
@@ -75,6 +76,7 @@ class App extends Component {
         </select>
         <h3>{this.props.user.currentUserId}</h3>
       </div>
+
 
       {this.props.user.clientData.audience && this.props.user.clientData.audience.data.audience.length > 0 &&
 

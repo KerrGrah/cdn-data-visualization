@@ -6,34 +6,28 @@ const time = []
 
 export default class FooterMap extends Component {
 
-shouldComponentUpdate(nextProps) {
+  shouldComponentUpdate(nextProps) {
     return nextProps.currentUserId !== this.props.currentUserId
-}
+  }
   render() {
     this.props.data.data.audience.forEach(cell => {
       audience.push(cell[1])
       time.push(new Date(cell[0]))
     })
+  //  console.log(this.props.data.data.audience);
 
-return (
-<Line data={data} options={options}/>
-)
+    return (<Line data={data} options={options}/>)
+  }
 }
-}
-
 
 const data = {
   labels: time,
   datasets: [
     {
-      label: 'cdn',
+    //  label: 'cdn',
       data: audience,
-      backgroundColor: [
-        'rgba(178, 18, 92, 0.4)',
-      ],
-      borderColor: [
-        'rgba(178, 18, 92, 0.8)',
-      ],
+      backgroundColor: ['rgba(178, 18, 92, 0.4)'],
+      borderColor: ['rgba(178, 18, 92, 0.8)'],
       borderWidth: 1
     }
   ]
@@ -53,13 +47,16 @@ const options = {
     xAxes: [
       {
         display: false,
-        callbacks: {beforeUpdate: function() {return false}
+        callbacks: {
+          //  beforeUpdate: function() {
+          //  return false
+        //  }
         }
-}
+      }
     ],
     yAxes: [
       {
-          display: false
+        display: false
       }
     ]
   },

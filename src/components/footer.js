@@ -7,20 +7,19 @@ export default class Footer extends Component {
     super(props)
     this.state = {
       sliderMaxWidth: 0,
-      width: 180,
+      width: 0,
       height: 66,
-      x: 100,
-      y: 100
+      x: 0
     }
   }
-componentDidUpdate(prevProps) {
-    if (prevProps.currentUserId !== this.props.currentUserId)
-  this.viewRangeChange()
-  }
+  componentDidUpdate(prevProps) {
+      if (prevProps.currentUserId !== this.props.currentUserId){}
+    //this.viewRangeChange()
+    }
 
   componentDidMount() {
     const container = document.getElementsByClassName('view-footer-container')[0]
-  //  console.log(container.offsetWidth);
+   console.log(container.offsetWidth);
     // set slider view range on mount depending on screen size
     const width =  window.innerWidth / 6
     this.setState(()=> ({sliderMaxWidth: container.offsetWidth -7, width: width,x: window.innerWidth/2 - width }), ()=> {
@@ -29,13 +28,10 @@ componentDidUpdate(prevProps) {
   }
 
    viewRangeChange  = () => {
-     const fullRange = this.state.sliderMaxWidth // window.innerWidth //- 16;
+     const fullRange = this.state.sliderMaxWidth;
      const start = this.state.x;
      const stop = this.state.x + this.state.width;
-  //   console.log("full range :", fullRange);
-  //   console.log("slider width :", this.state.width);
-  //   console.log(start / fullRange, stop / fullRange);
-     this.props.viewRangeChange(start / fullRange,  stop/ fullRange)
+     this.props.viewRangeChange(start / fullRange,  stop / fullRange)
   }
 
   handleDrag = (e, d) => {

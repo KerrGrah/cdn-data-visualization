@@ -3,8 +3,8 @@ Number.prototype.pad = function (len) {
 }
 
 export function timeConverter(UNIX_timestamp) {
-  var a = new Date(UNIX_timestamp);
-  var months = [
+  const a = new Date(UNIX_timestamp);
+  const months = [
     'Jan',
     'Feb',
     'Mar',
@@ -18,13 +18,13 @@ export function timeConverter(UNIX_timestamp) {
     'Nov',
     'Dec'
   ];
-  var year = a.getFullYear();
-  var month = months[a.getMonth()];
-  var date = a.getDate();
-  var hour = a.getHours();
-  var min = a.getMinutes().pad(2);
-  //var sec = a.getSeconds();
-  var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min //+ ':' + sec ;
+  const year = a.getFullYear();
+  const month = months[a.getMonth()];
+  const date = a.getDate();
+  const hour = a.getHours();
+  const min = a.getMinutes().pad(2);
+  //const sec = a.getSeconds();
+  const time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min //+ ':' + sec ;
   const short = date + ' ' + month
   return [time, short];
 }

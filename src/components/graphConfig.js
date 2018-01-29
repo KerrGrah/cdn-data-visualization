@@ -1,3 +1,6 @@
+//TODO callbacks for y axes labels to divide data according to range - add text e.g. 'k' when appropriate
+//TODO callback for graph2 tooltip to add spacing
+
 export const graph1options = {
 
   legend: {
@@ -53,12 +56,11 @@ export const graph1options = {
       },
       footer: function(tooltipItem, data) {
 
-        tooltipItem[0].index
         return "total: " + (data.datasets[2].data[tooltipItem[0].index] + data.datasets[3].data[tooltipItem[0].index]).toFixed(2)
       }
     }
   },
-  maintainAspectRatio: true
+  maintainAspectRatio: false
 }
 
 export const graph2options = {
@@ -84,6 +86,17 @@ export const graph2options = {
           autoSkip: false
         }
       }
+    ],
+    yAxes: [
+      {
+        ticks: {
+          // limits x axis labels depending on amount of data points
+          callback: function(label) {
+            return label / 1000 + 'k'
+          },
+          autoSkip: false
+        }
+      }
     ]
   },
   tooltips: {
@@ -95,10 +108,42 @@ export const graph2options = {
     yPadding: 10,
     backgroundColor: "rgba(255,255,255,0.9)",
     titleFontColor: '#222',
-    titleFontColor: '#222',
     bodyFontColor: '#222',
     footerFontColor: '#222'
-  }
+  },
+    maintainAspectRatio: false
+}
+
+export const footerMapOptions = {
+  elements: {
+    point: {
+      radius: 0,
+      hitRadius: 0,
+      hoverRadius: 0
+    }
+  },
+  legend: {
+    display: false
+  },
+  scales: {
+    xAxes: [
+      {
+        display: false,
+        callbacks: {
+        }
+      }
+    ],
+    yAxes: [
+      {
+        display: false
+      }
+    ]
+  },
+  tooltips: {
+    enabled: false
+  },
+  hover: {mode: null},
+  maintainAspectRatio: false
 }
 
 export const dataConfig = {

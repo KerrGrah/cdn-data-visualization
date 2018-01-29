@@ -53,7 +53,7 @@ export default class Graph2 extends Component {
 
     return (
       <div className="graph-audience-container" >
-        <Line height={70}
+        <Line height={this.props.height/ 2 - 100}
           data={data} options={graph2options} />
     </div>
     )

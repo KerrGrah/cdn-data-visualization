@@ -1,3 +1,5 @@
+//TODO currently doesn't handle window resize events
+
 import React, {Component} from 'react';
 import FooterMap from './footermap'
 import Rnd from 'react-rnd';

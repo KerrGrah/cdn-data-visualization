@@ -54,7 +54,7 @@ export default class Graph2 extends Component {
         },
         {
           label: 'maxAud',
-          data: getArrOfMax(audience),//Array.apply(null, new Array(p2p.length)).map(Number.prototype.valueOf, maxCDN ),
+          data: getArrOfMax(audience),
           fill: false,
           radius: 0,
           pointHoverRadius: 0,

@@ -65,7 +65,7 @@ class App extends Component {
 
   render() {
     // console.log(this.props);
-    if (this.props.user.clientData.audience && this.props.user.clientData.audience.data.audience.length > 0) {
+    if (this.props.user.clientData && this.props.user.clientData.audience && this.props.user.clientData.audience.data.audience.length > 0) {
     return (
       <div className="App">
         <Header users={this.props.users} logIn={this.logIn} currentUser={this.props.user.currentUserId}/>

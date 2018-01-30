@@ -1,6 +1,6 @@
 import {url} from '../config'
 
-// back 60 days
+// back 60 days (and 100 mi)
 const fromTimestamp = new Date().getTime() - 3600000 - 3600000 * 24 * 60 - 100;
 const nowTimestamp = new Date().getTime() - 100;
 
@@ -47,14 +47,15 @@ export function logOut(sessionId) {
     }).then((res) => {
       dispatch({type: "USER_LOG_OUT_SUCCESS"});
     }).catch(error => {
-      console.error('Error:', error)
+      //console.log('this error is harmless - logout is automatic for dev purposes');
+      //console.error('Error:', error)
       dispatch({type: "LOG_OUT_REJECTED", payload: error})
     })
   }
 }
 
 function getClientData(dispatch, sessionToken) {
-  
+
   dispatch({type: "FETCHING_CLIENT_DATA"});
   const aggregateParams = ['', 'sum', 'average', 'max', 'min'];
   let promises = [];

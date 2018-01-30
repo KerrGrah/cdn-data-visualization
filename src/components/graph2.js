@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Line} from 'react-chartjs-2';
 import {timeConverter} from '../utilFunctions';
-import {graph2options} from './graphConfig';
+import {dataConfig, graph2options} from './graphConfig';
 
 export default class Graph2 extends Component {
 
@@ -35,6 +35,7 @@ export default class Graph2 extends Component {
     const data = {
         labels: date,
         datasets: [{
+            ...dataConfig,
             label: 'Audience ',
             data: audience,
             backgroundColor: [

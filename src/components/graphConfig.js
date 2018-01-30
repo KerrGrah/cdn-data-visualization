@@ -155,10 +155,10 @@ export const dataConfig = {
   borderDash: [],
   borderDashOffset: 0.0,
   borderJoinStyle: 'miter',
-  pointBorderWidth: 1,
+  pointBorderWidth: 0,
   pointHoverRadius: 5,
   pointHoverBorderWidth: 2,
   //  pointBackgroundColor: '#fff',
-  pointRadius: 2,
+  pointRadius: 0,
   pointHitRadius: 10
 }

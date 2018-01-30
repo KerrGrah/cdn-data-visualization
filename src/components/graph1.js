@@ -1,7 +1,7 @@
-//TODO MAX and MIN  horizontal lines currently not working consistently, so color is set to opaque
+//TODO Add text to max lines
 import React, {Component} from 'react';
 import {Line} from 'react-chartjs-2';
-import {timeConverter} from '../utilFunctions';
+import {getArrOfMax, timeConverter} from '../utilFunctions';
 import {dataConfig, graph1options} from './graphConfig';
 
 export default class Graph1 extends Component {
@@ -25,8 +25,8 @@ export default class Graph1 extends Component {
     const p2p = [];
     const time = []
     const date = [];
-    // CDN data
 
+    // CDN data
     this.sliceData(this.props.capacity.data.cdn).forEach(cell => {
       cdn.push(cell[1])
 
@@ -40,29 +40,35 @@ export default class Graph1 extends Component {
       p2p.push(cell[1])
     })
 
-    const maxCDN = this.props.capacity.max ? this.props.capacity.max.cdn / 1000 / 1000 / 1000  : null;
-    const maxP2P =  this.props.capacity.max ? this.props.capacity.max.p2p / 1000 / 1000 / 1000 : null;
-    const data = {
+  const data = {
       labels: date,
       datasets: [
         {
-          data: Array.apply(null, new Array(p2p.length)).map(Number.prototype.valueOf, maxCDN ),
+          //...dataConfig,
+          label: 'maxP2P',
+          data: getArrOfMax(p2p),//Array.apply(null, new Array(p2p.length)).map(Number.prototype.valueOf, maxCDN ),
           fill: false,
           radius: 0,
           pointHoverRadius: 0,
           pointHoverBorderWidth: 0,
           pointRadius: 0,
           pointHitRadius: 0,
-          borderColor: "rgba(0,200,0,0.0)"
+          borderColor: "rgba(207,4,28, 0.8)",
+          borderWidth: 0.5,
+          borderDash: [6, 4],
         }, {
-          data: Array.apply(null, new Array(p2p.length)).map(Number.prototype.valueOf, maxP2P),
+          //...dataConfig,
+          label: 'maxCDN',
+          data: getArrOfMax(cdn),
           fill: false,
           radius: 0,
           pointHoverRadius: 0,
           pointHoverBorderWidth: 0,
           pointRadius: 0,
           pointHitRadius: 0,
-          borderColor: "rgba(0,200,0,0.0)"
+          borderColor: "rgba(69,135,65, 1)",
+          borderWidth: 0.5,
+          borderDash: [10, 4],
         }, {
           ...dataConfig,
           label: 'cdn',
@@ -89,7 +95,7 @@ export default class Graph1 extends Component {
     <div className="graph-container">
       <h3>CAPACITY OFFLOAD</h3>
       <div className="graph-bandwidth-container" >
-        <Line  height={this.props.height/ 2 - 100} data={data} options={graph1options}/>
+        <Line height={this.props.height/ 2 - 100} data={data} options={graph1options}/>
       </div>
     </div>)
   }

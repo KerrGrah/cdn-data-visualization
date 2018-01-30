@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Line} from 'react-chartjs-2';
-import {timeConverter} from '../utilFunctions';
+import {getArrOfMax, timeConverter} from '../utilFunctions';
 import {dataConfig, graph2options} from './graphConfig';
 
 export default class Graph2 extends Component {
@@ -51,7 +51,19 @@ export default class Graph2 extends Component {
             borderWidth: 3
         }, {
           data: time
-        }
+        },
+        {
+          label: 'maxAud',
+          data: getArrOfMax(audience),//Array.apply(null, new Array(p2p.length)).map(Number.prototype.valueOf, maxCDN ),
+          fill: false,
+          radius: 0,
+          pointHoverRadius: 0,
+          pointHoverBorderWidth: 0,
+          pointRadius: 0,
+          pointHitRadius: 0,
+          borderColor: "rgba(230, 95, 0, 0.9)",
+          borderWidth: 0.6,
+          borderDash: [6, 1],}
       ]
     }
 

@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 export default class Header extends Component {
 
   render() {
-    const users = this.props.users.map(user => <option value={user.identifiant}>{user.identifiant}</option>)
+    const users = this.props.users.map(user => <option key={user.identifiant} value={user.identifiant}>{user.identifiant}</option>)
 
     return (
       <div className="header-container">

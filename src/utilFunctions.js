@@ -1,8 +1,18 @@
+
+export const getArrOfMax = (arr) => {
+      const max = arr.reduce((a, b) => {
+        return Math.max(a, b)
+    }).toFixed(2)
+    return new Array(arr.length).fill(Number(max));
+  }
+
+
 Number.prototype.pad = function (len) {
-    return (new Array(len+1).join("0") + this).slice(-len);
+  return (new Array(len + 1).join("0") + this).slice(-len);
 }
 
-export function timeConverter(UNIX_timestamp) {
+export const timeConverter = (UNIX_timestamp) => {
+
   const a = new Date(UNIX_timestamp);
   const months = [
     'Jan',

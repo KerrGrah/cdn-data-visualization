@@ -2,7 +2,7 @@ Fetching and visualising data exercise.
 
 View here:
 
-https://combo-box-countries.herokuapp.com/
+https://cdn-data-vis.herokuapp.com/
 
 or
 

@@ -12,14 +12,10 @@ export default class Footer extends Component {
       x: 0
     }
   }
-  componentDidUpdate(prevProps) {
-      if (prevProps.currentUserId !== this.props.currentUserId){}
-    //this.viewRangeChange()
-    }
 
   componentDidMount() {
     const container = document.getElementsByClassName('view-footer-container')[0]
-   console.log(container.offsetWidth);
+
     // set slider view range on mount depending on screen size
     const width =  window.innerWidth / 6
     this.setState(()=> ({sliderMaxWidth: container.offsetWidth -7, width: width,x: window.innerWidth/2 - width }), ()=> {
@@ -55,9 +51,8 @@ export default class Footer extends Component {
   }
   // somewhat covers up bug in rnd library not limiting right bound
   controlBound(x) {
-    const S = this.state
-    return  x + S.width > S.sliderMaxWidth  ?
-    S.sliderMaxWidth - S.width : x;
+    return  x + this.state.width > this.state.sliderMaxWidth  ?
+    this.state.sliderMaxWidth - this.state.width : x;
   }
 
   render() {

@@ -1,3 +1,4 @@
+//TODO MAX and MIN  horizontal lines currently not working consistently, so color is set to opaque
 import React, {Component} from 'react';
 import {Line} from 'react-chartjs-2';
 import {timeConverter} from '../utilFunctions';
@@ -38,6 +39,7 @@ export default class Graph1 extends Component {
     this.sliceData(this.props.capacity.data.p2p).forEach(cell => {
       p2p.push(cell[1])
     })
+
     const maxCDN = this.props.capacity.max ? this.props.capacity.max.cdn / 1000 / 1000 / 1000  : null;
     const maxP2P =  this.props.capacity.max ? this.props.capacity.max.p2p / 1000 / 1000 / 1000 : null;
     const data = {
@@ -51,7 +53,7 @@ export default class Graph1 extends Component {
           pointHoverBorderWidth: 0,
           pointRadius: 0,
           pointHitRadius: 0,
-          borderColor: "rgba(0,200,0,0.8)"
+          borderColor: "rgba(0,200,0,0.0)"
         }, {
           data: Array.apply(null, new Array(p2p.length)).map(Number.prototype.valueOf, maxP2P),
           fill: false,
@@ -60,7 +62,7 @@ export default class Graph1 extends Component {
           pointHoverBorderWidth: 0,
           pointRadius: 0,
           pointHitRadius: 0,
-          borderColor: "rgba(0,200,0,0.8)"
+          borderColor: "rgba(0,200,0,0.0)"
         }, {
           ...dataConfig,
           label: 'cdn',
@@ -86,7 +88,7 @@ export default class Graph1 extends Component {
     return (
       <div className="graph-bandwidth-container" >
       <h3>CAPACITY OFFLOAD</h3>
-      <Line  height={this.props.height/ 2 - 100}data={data} options={graph1options}/>
+      <Line  height={this.props.height/ 2 - 100} data={data} options={graph1options}/>
     </div>)
   }
 }

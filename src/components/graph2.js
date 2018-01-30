@@ -24,6 +24,7 @@ export default class Graph2 extends Component {
     const audience = [];
     const time = []
     const date = [];
+    
     this.sliceData(this.props.audience.data.audience).forEach(cell => {
       audience.push(cell[1])
       const [timeVal, dateVal] = timeConverter(cell[0])

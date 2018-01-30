@@ -20,4 +20,3 @@ export default class Header extends Component {
     )
   }
 }
-//<h3>{this.props.currentUser}</h3>

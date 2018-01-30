@@ -5,6 +5,7 @@ import Graph1 from './components/graph1';
 import Graph2 from './components/graph2';
 import Footer from './components/footer';
 import Header from './components/header';
+import Message from './components/message';
 import {logIn, logOut} from './actions/actions';
 
 class App extends Component {
@@ -49,7 +50,6 @@ class App extends Component {
     const sesssionToken = localStorage.getItem('session_token')
     if (sesssionToken)
       this.props.dispatch(logOut(sesssionToken))
-    //  setTimeout(()=> {  this.props.dispatch(logIn('urtoob', 'ToobRU'))}, 1000)
   }
 
   componentWillUnmount() {
@@ -64,28 +64,51 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
+    if (this.props.user.clientData.audience && this.props.user.clientData.audience.data.audience.length > 0) {
     return (
       <div className="App">
         <Header users={this.props.users} logIn={this.logIn} currentUser={this.props.user.currentUserId}/>
-
-
-
-      {this.props.user.clientData.audience && this.props.user.clientData.audience.data.audience.length > 0 &&
-
         <div className="graphs-container">
-
         <Graph1 height={this.state.windowHeight} viewRange={this.state.viewRange} capacity={this.props.user.clientData.bandwidth}/>
-
         <Graph2 height={this.state.windowHeight} viewRange={this.state.viewRange} audience={this.props.user.clientData.audience}/>
-
         <Footer viewRangeChange={this.viewRangeChange} audience={this.props.user.clientData.audience} currentUserId={this.props.user.currentUserId}/>
-
       </div>
+      </div>
+      )
+    }
+    else if (this.props.user.fetching) {
+      return (
+        <div className="App">
+          <Header users={this.props.users} logIn={this.logIn} currentUser={this.props.user.currentUserId}/>
+          <Message msgClass={"loading"} msgText={"loading..."} />
+        </div>
+      )
     }
 
-      </div>
-    );
+    else if (this.props.user.currentUserId) {
+      return (
+        <div className="App">
+          <Header users={this.props.users} logIn={this.logIn} currentUser={this.props.user.currentUserId}/>
+          <Message msgClass={"not-data"} msgText={`There is currently no data for ${this.props.user.currentUserId}'s account`} />
+        </div>
+      )
+    }
+    else if (this.props.user.logInError) {
+      return (
+        <div className="App">
+          <Header users={this.props.users} logIn={this.logIn} currentUser={this.props.user.currentUserId}/>
+          <Message msgClass={"login-error"} msgText={`It seems you may already be logged in on another device`} />
+        </div>
+      )
+    }
+    else {
+      return (
+      <div className="App">
+        <Header users={this.props.users} logIn={this.logIn} currentUser={this.props.user.currentUserId}/>
+        <Message msgClass={"not-loggedin"} msgText={`Please log in to access your account`} />
+      </div>)
+    }
   }
 }
 

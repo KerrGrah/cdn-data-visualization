@@ -1,10 +1,11 @@
 //TODO callbacks for y axes labels to divide data according to range - add text e.g. 'k' when appropriate
 
-
 import {numberWithCommas} from '../utilFunctions'
 import { defaults } from 'react-chartjs-2';
+
 defaults.global.animation.duration = 100;
-defaults.global.defaultFontFamily = "'Montserrat'"
+defaults.global.defaultFontFamily = "'Montserrat'";
+defaults.global.defaultFontStyle = "bold";
 
 
 export const graph1options = {

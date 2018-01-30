@@ -1,5 +1,11 @@
 //TODO callbacks for y axes labels to divide data according to range - add text e.g. 'k' when appropriate
-//TODO callback for graph2 tooltip to add spacing
+
+
+import {numberWithCommas} from '../utilFunctions'
+import { defaults } from 'react-chartjs-2';
+defaults.global.animation.duration = 100;
+defaults.global.defaultFontFamily = "'Montserrat'"
+
 
 export const graph1options = {
 
@@ -50,8 +56,7 @@ export const graph1options = {
           : tooltipItem.datasetIndex === 3
             ? ' P2P: '
             : ""
-        if (!label)
-          return
+        if (!label) return "";
         return label + tooltipItem.yLabel.toFixed(3) + ' Gbps';
       },
       footer: function(tooltipItem, data) {
@@ -109,7 +114,20 @@ export const graph2options = {
     backgroundColor: "rgba(255,255,255,0.9)",
     titleFontColor: '#222',
     bodyFontColor: '#222',
-    footerFontColor: '#222'
+    footerFontColor: '#222',
+
+    callbacks: {
+      labelColor:function() {
+        return {backgroundColor:'rgba(230, 95, 0, 0.9)'}
+      },
+      title: function(tooltipItems, data) {
+          // gives tooltip detailed time as title
+        return data.datasets[1].data[tooltipItems[0].index]
+      },
+      label: function(tooltipItem, data) {
+        return " " + numberWithCommas(tooltipItem.yLabel) + " viewers"
+      }
+    }
   },
     maintainAspectRatio: false
 }

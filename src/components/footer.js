@@ -75,7 +75,7 @@ export default class Footer extends Component {
       onDragStop={this.handleDrag}
       onResizeStop={this.viewRangeChange}
       onResize={this.handleResize}
-      style={{backgroundColor:'rgba(0,200,0,0.3)', borderStyle: 'solid', borderWidth: '3px', borderColor: 'rgba(0,200,0,0.5)', borderRadius: '6px' }}
+      style={{backgroundColor:'rgba(69,135,65, 0.1)', borderStyle: 'solid', borderWidth: '3px', borderColor: 'rgba(69,135,65, 0.8)', borderRadius: '6px' }}
       minWidth={10}
       maxWidth={'100%'}
       z={999}

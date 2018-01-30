@@ -28,3 +28,8 @@ export function timeConverter(UNIX_timestamp) {
   const short = date + ' ' + month
   return [time, short];
 }
+
+
+export const numberWithCommas = (x) => {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}

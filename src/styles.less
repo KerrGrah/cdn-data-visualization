@@ -1,4 +1,4 @@
-@import url( 'https://fonts.googleapis.com/css?family=Bree+Serif|Pacifico');
+@import url( 'https://fonts.googleapis.com/css?family=Bree+Serif|Montserrat|Pacifico');
 @lightblue: #4FBCF2;
 @darkblue: #3AA0D3;
 @berry: #B2125C;
@@ -14,6 +14,7 @@ body {
   background: #fff;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .header-container {
@@ -23,7 +24,7 @@ body {
   left: 0;
   width: 100%;
   height: 11vh;
-  background-color: @palegrey;
+  background-color: rgba(236,242,246, 0.8); //@palegrey;
   text-align: center;
 
   .logo-container {
@@ -63,9 +64,9 @@ body {
     padding: 0 0 0 8px;
     width: 180px;
     border-radius: 5px;
-    background-color: @palegrey;
-    border: 1px solid @darkblue;
-    color: @darkblue;
+    background-color: #fff;
+    border: 1px solid @berry;
+    color: @berry;
     outline: none;
 
     &:focus {
@@ -77,11 +78,21 @@ body {
 .graph-bandwidth-container {
   width: 90%;
   margin: 100px auto 0;
+
+  h3 {
+    margin: 0 0 10px 4vw;
+    font-weight: 100;
+  }
 }
 
 .graph-audience-container {
   width: 90%;
   margin: 0 auto;
+
+  h3 {
+    margin: 0 0 10px 4vw;
+    font-weight: 100;
+  }
 }
 
 .view-footer-container {
@@ -98,14 +109,13 @@ body {
     user-select: none;
   }
 }
-
 @media (max-width: 768px) {
   .header-container .select-container {
-      width: 36vw;
-      margin: 3.5vh 4vw 0 0;
+    width: 36vw;
+    margin: 3.5vh 4vw 0 0;
 
     select {
-          width: 100%;
+      width: 100%;
     }
   }
 

@@ -39,7 +39,7 @@ export default class Graph2 extends Component {
             label: 'Audience ',
             data: audience,
             backgroundColor: [
-                'rgba(230, 95, 0, 0.3)'
+                'rgba(230, 95, 0, 0.0)'
             ],
             borderColor: [
                 'rgba(230, 95, 0, 0.9)'
@@ -47,13 +47,16 @@ export default class Graph2 extends Component {
             pointBorderColor: ['rgba(230, 95, 0, 0.9)'],
             pointHoverBackgroundColor:'rgba(230, 95, 0, 0.9)',
             pointHoverBorderColor: 'rgba(230, 95, 0, 0.9)',
-            borderWidth: 1
+            borderWidth: 3
+        }, {
+          data: time
         }
       ]
     }
 
     return (
       <div className="graph-audience-container" >
+        <h3>CONCURRENT VIEWERS</h3>
         <Line height={this.props.height/ 2 - 100}
           data={data} options={graph2options} />
     </div>

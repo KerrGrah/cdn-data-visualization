@@ -6,10 +6,6 @@ import Graph2 from './components/graph2';
 import Footer from './components/footer';
 import Header from './components/header';
 import {logIn, logOut} from './actions/actions';
-import { defaults } from 'react-chartjs-2';
-
-defaults.global.animation.duration = 100;
-
 
 class App extends Component {
   constructor(props) {

@@ -17,6 +17,7 @@ body {
 }
 
 .header-container {
+  overflow: hidden;
   position: fixed;
   top: 0;
   left: 0;
@@ -54,11 +55,12 @@ body {
   }
 
   select {
+    -webkit-appearance: none;
     background: transparent;
     border: none;
     font-size: 18px;
     height: 29px;
-    padding: 5px;
+    padding: 0 0 0 8px;
     width: 180px;
     border-radius: 5px;
     background-color: @palegrey;
@@ -99,12 +101,11 @@ body {
 
 @media (max-width: 768px) {
   .header-container .select-container {
-    margin: 3.5vh 4vw;
-    margin-left: 0;
-    width: 120px;
+      width: 36vw;
+      margin: 3.5vh 4vw 0 0;
 
     select {
-      width: 180px;
+          width: 100%;
     }
   }
 

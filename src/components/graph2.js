@@ -24,7 +24,7 @@ export default class Graph2 extends Component {
     const audience = [];
     const time = []
     const date = [];
-    
+
     this.sliceData(this.props.audience.data.audience).forEach(cell => {
       audience.push(cell[1])
       const [timeVal, dateVal] = timeConverter(cell[0])
@@ -56,10 +56,12 @@ export default class Graph2 extends Component {
     }
 
     return (
+    <div className="graph-container">
+      <h3>CONCURRENT VIEWERS</h3>
       <div className="graph-audience-container" >
-        <h3>CONCURRENT VIEWERS</h3>
-        <Line height={this.props.height/ 2 - 100}
-          data={data} options={graph2options} />
+        <Line height={this.props.height/ 2 - 140}
+      data={data} options={graph2options} />
+      </div>
     </div>
     )
   }

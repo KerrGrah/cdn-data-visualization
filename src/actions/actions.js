@@ -54,7 +54,7 @@ export function logOut(sessionId) {
 }
 
 function getClientData(dispatch, sessionToken) {
-
+  
   dispatch({type: "FETCHING_CLIENT_DATA"});
   const aggregateParams = ['', 'sum', 'average', 'max', 'min'];
   let promises = [];

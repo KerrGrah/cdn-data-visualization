@@ -86,9 +86,11 @@ export default class Graph1 extends Component {
     }
     //console.log(this.props);
     return (
-      <div className="graph-bandwidth-container" >
+    <div className="graph-container">
       <h3>CAPACITY OFFLOAD</h3>
-      <Line  height={this.props.height/ 2 - 100} data={data} options={graph1options}/>
+      <div className="graph-bandwidth-container" >
+        <Line  height={this.props.height/ 2 - 100} data={data} options={graph1options}/>
+      </div>
     </div>)
   }
 }

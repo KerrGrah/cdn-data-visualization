@@ -82,27 +82,30 @@ body {
   text-align: center;
 }
 
-.graph-bandwidth-container {
-  width: 90%;
-  margin: 100px auto 0;
-
+.graph-container {
   h3 {
     margin: 0 0 10px 4vw;
     font-weight: 100;
   }
 }
+.graph-container:first-of-type h3:first-of-type {
+  margin-top: 100px;
+}
 
-.graph-audience-container {
-  width: 90%;
-  margin: 0 auto;
-
+.graph-container {
   h3 {
-    margin: 0 0 10px 4vw;
+    margin: 0 0 10px 8vw;
     font-weight: 100;
+  }
+  .graph-audience-container, .graph-bandwidth-container {
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
   }
 }
 
 .view-footer-container {
+  position: relative;
   margin: 0 auto;
   box-sizing: border-box;
   position: relative;
